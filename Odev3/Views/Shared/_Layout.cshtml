@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <header id="header">
+        <!--header-->
+        <div class="header_top">
+            <!--header_top-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="contactinfo">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                    Dil Seç
+                                </button>
+
+                                    <ul class="dropdown-menu">
+                                       <li>@Html.ActionLink("Türkçe","ChangeCulture","Home", new { lang = "tr", returnurl = this.Request.RawUrl },null) </li>
+                                        <li>@Html.ActionLink("English", "ChangeCulture", "Home", new { lang = "en", returnurl = this.Request.RawUrl }, null) </li>
+                                    </ul>
+                                <a href="@Url.Action("Index", "AdminLogin")" class="btn btn-default usa">
+                                    Admin Girişi
+                                </a>
+                            </div>
+                         
+                            
+                         
+                           
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="social-icons pull-right">
+                            <ul>
+                                <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div><!--/header_top-->
+
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="logo pull-left">
+                            <a href="@Url.Action("Index", "Home")">
+                               <img src="../Content/logo.png" alt="" /></a>
+                                    </div>
+                       </div>
+                    <div class="col-sm-8">
+                        <div class="shop-menu pull-right">
+                            <ul>
+                            
+                               @{ if (Session["KullaniciAdi"] != null)
+                                   {
+                              
+                                <li>
+                                    
+                                    <a href="@Url.Action("Cikis", "Uyeler")">
+                                        <i class="fa fa-user"></i>
+                                        Çıkış Yap
+                                    </a>
+                                </li>
+                                   }
+                                   else
+                                   {
+                                    <li>
+                                        <i class="fa fa-user"></i>
+                                        @Html.ActionLink(Odev3.Resources.Lang.Kayıt, "KayitOl", "Uyeler")
+                                                
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-user"></i>
+                                            @Html.ActionLink(Odev3.Resources.Lang.Giriş, "UyeGiris", "Uyeler")
+
+                                        </li>
+
+                                   }
+                            }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/header-middle-->
+
+        <div class="header-bottom">
+            <!--header-bottom-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="mainmenu pull-left">
+                            <ul class="nav navbar-nav collapse navbar-collapse">
+                                <li>@Html.ActionLink(Odev3.Resources.Lang.Anasayfa,"Index","Home")</li>
+                                <li>@Html.ActionLink(Odev3.Resources.Lang.Ürünler, "Index", "Urunler")</li>
+                                <li>@Html.ActionLink(Odev3.Resources.Lang.İletişim, "Index", "Iletisim")</li>
+                            </ul>
+                        </div>
+                    </div>
+      
+                </div>
+            </div>
+        </div><!--/header-bottom-->
+    </header><!--/header-->
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="row">
+                <div class="col-sm-4">
+                   
+                    <div class="contactinfo">
+                       
+                        <ul>
+                            <li><h2>İletişim</h2></li>
+                            <li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
+                            <li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4 footermenu">
+                    <ul class="text-center">
+                        <li> <h2>Menüler</h2></li>
+                        <li>@Html.ActionLink(Odev3.Resources.Lang.Anasayfa, "Index","Home")</li>
+                        <li>@Html.ActionLink(Odev3.Resources.Lang.Ürünler, "Index", "Urunler")</li>
+                        <li>@Html.ActionLink(Odev3.Resources.Lang.İletişim, "Index", "Iletisim")</li>
+                        <li>@Html.ActionLink(Odev3.Resources.Lang.Kayıt, "KayitOl", "Uyeler")</li>
+                        <li>@Html.ActionLink(Odev3.Resources.Lang.Giriş, "UyeGiris", "uyeler")</li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <div class="social-icons pull-right">
+                        <h2 class="text-center">Sosyal Ağlar</h2>
+                            <ul>
+                                <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                     </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

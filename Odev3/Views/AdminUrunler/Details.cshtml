@@ -1,0 +1,61 @@
+﻿@model Odev3.Models.Urunler
+
+@{
+    ViewBag.Title = "Details";
+    if (Session["Admin"] != null)
+    {
+        Layout = "~/Views/Shared/AdminLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Urunler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAdi)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyati)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyati)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StokMiktari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StokMiktari)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AltKategori.AltKategoriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltKategori.AltKategoriAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

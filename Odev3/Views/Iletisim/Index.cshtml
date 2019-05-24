@@ -1,0 +1,69 @@
+﻿
+@model  Odev3.Models.Mesajlar
+@{
+    ViewBag.Title = "İletişim";
+}
+
+<div id="contact-page" class="container">
+    <div class="bg">
+
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="contact-form">
+                    <h2 class="title text-center">İletişim</h2>
+                    <div class="status alert alert-success" style="display: none"></div>
+                    @using (Html.BeginForm("Ekle", "Iletisim", FormMethod.Post, new
+                    { @class= "contact-form row", id = "main-contact-form", name = "contact-form" }))
+                    {
+                        <div class="form-group col-md-6">
+                        @Html.TextBoxFor(m=>m.KullaniciAdi,new { @class = "form-control", name = "name" ,placeholder="Adınız" })
+                         </div>
+                        <div class="form-group col-md-6">
+                            @Html.TextBoxFor(m => m.E_Posta, new { @class = "form-control", name = "email", placeholder = "Email" })
+                        </div>
+                        <div class="form-group col-md-12">
+                            @Html.TextBoxFor(m => m.Konu, new { @class = "form-control", name = "subject", placeholder = "Konu" })
+                        </div>
+                        <div class="form-group col-md-12">
+                            @Html.TextAreaFor(m => m.Mesaji, new { @class = "form-control", id = "message", name = "message", placeholder = "Mesajınız" })
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input type="submit" name="submit" class="btn btn-primary pull-right" value="Kaydet">
+                        </div>
+                    }
+                  </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="contact-info">
+                    <h2 class="title text-center">İletişim Bilgileri</h2>
+                    <address>
+                        <p>Sakarya/Serdivan</p>
+                        <p>Sakarya Universitesi</p>
+                        <p>Bilgisayar ve Bilişim Fakültesi</p>
+                        <p>Telefon: +999 999 99 99</p>
+                        <p>Email: seadxhigoli_97@elive.com</p>
+                        <p>Email: ramazandurmaz3@gmail.com</p>
+                    </address>
+                    <div class="social-networks">
+                        <h2 class="title text-center">Sosyal Medya</h2>
+                        <ul>
+                            <li>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-youtube"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--/#contact-page-->
+

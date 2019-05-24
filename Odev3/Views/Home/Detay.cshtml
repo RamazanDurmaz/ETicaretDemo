@@ -1,0 +1,45 @@
+﻿@model Odev3.Models.Urunler
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container">
+         <div class="row">
+             <div class="col-md-5">
+                 <div class="product-details">
+                     <!--product-details-->
+
+                     <div class="view-product">
+                         <img src="@Url.Content(Model.UrunResmi)" height="100px" />
+                     </div>
+
+
+                 </div>
+
+             </div>
+        <div class="col-sm-6">
+            <div class="product-information">
+                <!--/product-information-->
+                <img src="images/product-details/new.jpg" class="newarrival" alt="">
+                <h2>@Html.DisplayFor(model => model.UrunAdi)</h2>
+                <img src="images/product-details/rating.png" alt="">
+
+                <p>
+                    <b> @Html.DisplayNameFor(model => model.Fiyati):</b>
+                    @Html.DisplayFor(model => model.Fiyati)
+                </p>
+
+
+                <p><b>@Html.DisplayNameFor(model => model.StokMiktari):</b> @Html.DisplayFor(model => model.StokMiktari)</p>
+                <p><b>@Html.DisplayNameFor(model => model.AltKategori.AltKategoriAdi):</b> @Html.DisplayFor(model => model.AltKategori.AltKategoriAdi)</p>
+
+
+                <a href="@Url.Action("SatinAlma","Home")"  class = "btn btn-default add-to-cart"> <i class="fa fa-shopping-cart"></i>Satın Al</a>
+            </div><!--/product-information-->
+        </div>
+    </div>
+    </div>
+
+

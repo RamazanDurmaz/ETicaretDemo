@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Odev3.Models.Urunler>
+
+@{
+    ViewBag.Title = "Admin/Urunler";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div id="wrapper">
+
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar-nav" class="sidebar">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+                    <li><a href="@Url.Action("Index", "AdminUrunler")"><i class="lnr lnr-home"></i> <span>Ürün Düzenleme</span></a></li>
+                    <li><a href="@Url.Action("Index", "AdminMesajlar")"><i class="lnr lnr-code"></i> <span>Mesaj</span></a></li>
+                    <li><a href="@Url.Action("Index", "AdminUyeler")"><i class="lnr lnr-home"></i> <span>Üye Düzenleme</span></a></li>
+                    <li><a href="@Url.Action("Index", "AdminKategori")"><i class="lnr lnr-home"></i> <span>Kategoriler</span></a></li>
+                    <li><a href="@Url.Action("Index", "AdminAltKategori")"><i class="lnr lnr-home"></i> <span>Alt Kategoriler</span></a></li>
+                    <li>
+                        <a href="@Url.Action("AdminCikis", "AdminLogin")" class="cikis">
+                            <i class="fa fa-user"></i>
+                            Çıkış Yap
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="main">
+        <h2> Ürünler</h2>
+        <p>
+            @Html.ActionLink("Yeni Ürün Ekle", "Create")
+        </p>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UrunAdi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UrunResmi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fiyati)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StokMiktari)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AltKategori.AltKategoriAdi)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UrunAdi)
+                    </td>
+                    <td>
+                        <img src="@Url.Content(item.UrunResmi)" height="100px" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fiyati)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StokMiktari)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AltKategori.AltKategoriAdi)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@model  Odev3.Models.Admin
+@{
+    ViewBag.Title = "Admin Girişi";
+}
+
+<section id="form">
+    <!--form-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-4 col-sm-4 col-sm-offset-4">
+                <div class="login-form">
+                    <!--login form-->
+                    <h2>Admin Girişi</h2>
+                    @using (Html.BeginForm("AdminGiris", "AdminLogin", FormMethod.Post, new
+                    { @class = "contact-form row", id = "main-contact-form", name = "contact-form" }))
+                    {
+                        @Html.AntiForgeryToken();
+
+                        @Html.TextBoxFor(m => m.KullaniciAdi, new { @class = "form-control", name = "name", placeholder = "Kullanıcı Adı" })
+                        @Html.PasswordFor(m => m.Sifre, new { @class = "form-control", name = "name", placeholder = "Şifre", type = "password" })
+                  
+                        <span>
+                            <input type="checkbox" class="checkbox">
+                            Keep me signed in
+                        </span>
+                        <button type="submit" class="btn btn-default">Login</button>
+                    }
+               
+                </div><!--/login form-->
+            </div>
+          
+      
+        </div>
+    </div>
+</section><!--/form-->
+

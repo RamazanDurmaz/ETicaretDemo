@@ -1,0 +1,67 @@
+﻿@model Odev3.Models.Satis
+@{
+    ViewBag.Title = "SatinAlma";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div id="contact-page" class="container">
+    <div class="bg">
+
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="contact-form">
+                    <h2 class="title text-center">Satın Alma</h2>
+                    <div class="status alert alert-success" style="display: none"></div>
+                    @using (Html.BeginForm("SatinAl", "Home", FormMethod.Post, new
+                    { @class = "contact-form row", id = "main-contact-form", name = "contact-form" }))
+                    {
+                        <div class="form-group col-md-6">
+                            @Html.TextBoxFor(m => m.MusteriAdi, new { @class = "form-control", name = "name", placeholder = "Adınız" })
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            @Html.TextBoxFor(m => m.MusteriSoyadi, new { @class = "form-control", name = "name", placeholder = "Soyadınız" })
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            @Html.TextBoxFor(m => m.E_Posta, new { @class = "form-control", name = "name", placeholder = "E-Posta" })
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            @Html.TextBoxFor(m => m.Adres1, new { @class = "form-control", name = "name", placeholder = "Adres 1" })
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            @Html.TextBoxFor(m => m.Adres2, new { @class = "form-control", name = "name", placeholder = "Adres 2" })
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            @Html.TextBoxFor(m => m.PostaKodu, new { @class = "form-control", name = "name", placeholder = "ZİP/ Posta Kodu" })
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            @Html.TextBoxFor(m => m.Tarih, new { @class = "form-control", name = "name", placeholder = "Tarih" })
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.TextBoxFor(m => m.Telefon, new { @class = "form-control", name = "name", placeholder = "Telefon" })
+                        </div>
+
+                        
+                        
+                        <div class="form-group col-md-12">
+                            <input type="submit" name="submit" class="btn btn-primary pull-right" value="Satın Al">
+                            @ViewBag.Message
+                        </div>
+                    }
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div><!--/#contact-page-->
+
+        
+         

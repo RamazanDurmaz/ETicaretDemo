@@ -1,0 +1,51 @@
+﻿@model Odev3.Models.Mesajlar
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Mesajlar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KullaniciAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mesaji)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mesaji)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Konu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Konu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.E_Posta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_Posta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

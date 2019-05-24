@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Odev3.Models.Uyeler>
+
+@{
+    ViewBag.Title = "Admin/Uyeler";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div id="wrapper">
+
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar-nav" class="sidebar">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+                    <li><a href="@Url.Action("Index", "AdminUrunler")"><i class="lnr lnr-home"></i> <span>Ürün Düzenleme</span></a></li>
+                    <li><a href="@Url.Action("Index", "AdminMesajlar")"><i class="lnr lnr-code"></i> <span>Mesaj</span></a></li>
+                    <li><a href="@Url.Action("Index", "AdminUyeler")"><i class="lnr lnr-home"></i> <span>Üye Düzenleme</span></a></li>
+                    <li><a href="@Url.Action("Index", "AdminKategori")"><i class="lnr lnr-home"></i> <span>Kategoriler</span></a></li>
+                    <li><a href="@Url.Action("Index", "AdminAltKategori")"><i class="lnr lnr-home"></i> <span>Alt Kategoriler</span></a></li>
+                    <li>
+                        <a href="@Url.Action("AdminCikis", "AdminLogin")" class="cikis">
+                            <i class="fa fa-user"></i>
+                            Çıkış Yap
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="main">
+        <h2> Üyeler</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.KullaniciAdi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.E_Posta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sifre)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KullaniciAdi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.E_Posta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sifre)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <div class="clearfix"></div>
+    <footer>
+        <div class="container-fluid">
+            <p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All Rights Reserved.</p>
+        </div>
+    </footer>
+</div>
